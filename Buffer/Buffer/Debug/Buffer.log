@@ -1,0 +1,4 @@
+﻿  Buffer.cpp
+c:\users\колян\documents\visual studio 2015\projects\buffer\buffer\buffer.cpp(9): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  Buffer.vcxproj -> C:\Users\колян\Documents\Visual Studio 2015\Projects\Buffer\Debug\Buffer.exe
+  Buffer.vcxproj -> C:\Users\колян\Documents\Visual Studio 2015\Projects\Buffer\Debug\Buffer.pdb (Full PDB)
