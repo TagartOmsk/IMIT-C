@@ -1,4 +1,0 @@
-﻿  ConsoleApplication7.cpp
-c:\users\колян\documents\visual studio 2015\projects\consoleapplication7\consoleapplication7\l2listimplementation.h(108): warning C4715: L2Ring<int>::search: значение возвращается не при всех путях выполнения
-  ConsoleApplication7.vcxproj -> C:\Users\колян\Documents\Visual Studio 2015\Projects\ConsoleApplication7\Debug\L2List.exe
-  ConsoleApplication7.vcxproj -> C:\Users\колян\Documents\Visual Studio 2015\Projects\ConsoleApplication7\Debug\L2List.pdb (Full PDB)
