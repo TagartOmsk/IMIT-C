@@ -90,6 +90,7 @@ public:
         if(iter == nullptr)throw std::runtime_error("No actual iterator");
         if(size <= 0 ) throw std::runtime_error("Nothing to remove");
         if(iter->finish()) throw std::runtime_error("End of list, please start iterator");
+
         Node<T>* temp = iter->current->next, *del = iter->current;
         iter->current = iter->current->prev;
         temp->prev = iter->current;
@@ -100,12 +101,14 @@ public:
 
     Iterator<T>* search(T value) override 
     { 
-        Node<T>*temp = buffer;
-        while(temp->next != buffer)
+        Iterator<T> *res = iterator();
+        res->start();
+        while(!res->finish())
         {
-            temp = temp->next;
-            if(temp->value == value)return new L2Iterator<T>(this, temp);
+            if(res->get() == value)return res;
+            res->next();
         }
+        return nullptr;
     }
 
     void clear() override {

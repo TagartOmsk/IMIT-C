@@ -92,6 +92,7 @@ int main()
         default:cout << "List size: " << list->length() << endl;
         }
     }
+
     list->push(1);
     list->push(2);
     list->push(3);
@@ -106,6 +107,7 @@ int main()
         cout << iter->get() << endl;
         iter->next();
     }
+
     L2Ring<string>& list1 = L2Ring<string>();
     list1.push("First");
     list1.push("Second");
@@ -119,6 +121,21 @@ int main()
         str = iter2->get();
         cout << str << endl;
         iter2->next();
+    }
+    
+    L2Ring<int> list3 = L2Ring<int>();
+    list3.push(1);
+    list3.push(4);
+    list3.push(22);
+    list3.push(12);
+    list3.push(41);
+    list3.push(110);
+    Iterator<int> *iter3 = list3.search(22);
+    if(iter3 != nullptr)
+    while(!iter3->finish())
+    {
+        cout << iter3->get() << endl;
+        iter3->next();
     }
     system("pause");
     return 0;
