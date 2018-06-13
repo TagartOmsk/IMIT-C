@@ -2,7 +2,6 @@
 #include "BinaryTree.h"
 #include <iostream>
 
-//public
 BinaryTree::BinaryTree(int rootValue)
 {
     root = new Node(rootValue);
@@ -17,7 +16,10 @@ BinaryTree::BinaryTree(const BinaryTree & other)
 
 BinaryTree::BinaryTree(BinaryTree && other)
 {
-    stole(other);
+    root = other.root;
+    level = other.level;
+    other.root = nullptr;
+    other.level = 0;
 }
 
 BinaryTree::~BinaryTree()
@@ -37,7 +39,10 @@ BinaryTree & BinaryTree::operator=(BinaryTree && other)
     {
         return *this;
     }
-    stole(other);
+    root = other.root;
+    level = other.level;
+    other.root = nullptr;
+    other.level = 0;
 }
 
 void BinaryTree::add(std::vector<bool> way, int x)
@@ -132,7 +137,6 @@ size_t BinaryTree::getLevel()
     return level;
 }
 
-//private
 bool BinaryTree::addR(Node *& root, int x, std::vector<bool>& forward, int length)
 {
     if(forward.size() == 0)
@@ -224,14 +228,6 @@ BinaryTree::Node* BinaryTree::copy(Node * root)
         return nullptr;
     }
     return new Node(root->value, copy(root->left), copy(root->right));
-}
-
-void BinaryTree::stole(BinaryTree & other)
-{
-    root = other.root;
-    level = other.level;
-    other.root = nullptr;
-    other.level = 0;
 }
 
 void BinaryTree::fromLeftToRightPrint(Node * root, std::ostream & os)

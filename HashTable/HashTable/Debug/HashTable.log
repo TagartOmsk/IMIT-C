@@ -1,14 +1,14 @@
 ﻿  HashTable.cpp
-d:\cpp projects\hashtable\hashtable\hashtable.h(362): warning C4018: <: несоответствие типов со знаком и без знака
-  d:\cpp projects\hashtable\hashtable\hashtable.h(361): note: при компиляции функции-члена "<Нет данных>" класса <Нет данных>
-  d:\cpp projects\hashtable\hashtable\hashtable.cpp(74): note: см. ссылку на создание экземпляров функции шаблон при компиляции "bool HashTable<int,std::string>::containsValue(const V &)"
+d:\cpp projects\hashtable\hashtable\hashtable.h(361): warning C4018: <: несоответствие типов со знаком и без знака
+  d:\cpp projects\hashtable\hashtable\hashtable.h(360): note: при компиляции функции-члена "<Нет данных>" класса <Нет данных>
+  d:\cpp projects\hashtable\hashtable\hashtable.cpp(70): note: см. ссылку на создание экземпляров функции шаблон при компиляции "bool HashTable<int,std::string>::containsValue(const V &)"
           with
           [
               V=std::string
           ]
-  d:\cpp projects\hashtable\hashtable\hashtable.cpp(36): note: см. ссылку на создание экземпляров класса шаблон при компиляции "HashTable<int,std::string>"
-d:\cpp projects\hashtable\hashtable\hashtable.h(349): warning C4018: <: несоответствие типов со знаком и без знака
-  d:\cpp projects\hashtable\hashtable\hashtable.h(348): note: при компиляции функции-члена "<Нет данных>" класса <Нет данных>
-  d:\cpp projects\hashtable\hashtable\hashtable.cpp(66): note: см. ссылку на создание экземпляров функции шаблон при компиляции "void HashTable<int,std::string>::clear(void)"
+  d:\cpp projects\hashtable\hashtable\hashtable.cpp(32): note: см. ссылку на создание экземпляров класса шаблон при компиляции "HashTable<int,std::string>"
+d:\cpp projects\hashtable\hashtable\hashtable.h(348): warning C4018: <: несоответствие типов со знаком и без знака
+  d:\cpp projects\hashtable\hashtable\hashtable.h(347): note: при компиляции функции-члена "<Нет данных>" класса <Нет данных>
+  d:\cpp projects\hashtable\hashtable\hashtable.cpp(62): note: см. ссылку на создание экземпляров функции шаблон при компиляции "void HashTable<int,std::string>::clear(void)"
   HashTable.vcxproj -> D:\CPP Projects\HashTable\Debug\HashTable.exe
   HashTable.vcxproj -> D:\CPP Projects\HashTable\Debug\HashTable.pdb (Full PDB)

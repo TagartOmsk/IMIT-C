@@ -1,5 +1,4 @@
-#ifndef HASH_TABLE_H
-#define HASH_TABLE_H
+#pragma once
 #include <string>
 
 template<typename K, typename V>
@@ -59,7 +58,7 @@ private:
             }
             void toEntryEnd()
             {
-                collection->current = collection->leaf;
+                collection->current = collection->last;
             }
         private:
             TableEntry *collection;
@@ -69,20 +68,20 @@ private:
         {
             root = new Node<K, V>();
             current = root;
-            leaf = root;
+            last = root;
             size = 0;
         }
         ~TableEntry()
         {
             clear();
         }
-        bool push(const K& key, const V& value)
+        bool push(K key, V value)
         {
             if(root == nullptr)
             {
                 root = new Node<K, V>();
                 current = root;
-                leaf = root;
+                last = root;
             }
             current = root;
             while(current != nullptr)
@@ -94,13 +93,13 @@ private:
                 }
                 current = current->next;
             }
-            current = leaf;
+            current = last;
             Node<K, V>* unit = new Node<K, V>(key, value, current->next);
             current->next = unit;
             current = current->next;
             if(current->next == nullptr)
             {
-                leaf = current;
+                last = current;
             }
             size++;
             return true;
@@ -124,16 +123,16 @@ private:
                     current = ptr;
                     if(current->next == nullptr)
                     {
-                        leaf = current;
+                        last = current;
                     }
                     size--;
-                    current = leaf;
+                    current = last;
                     return value;
                 }
                 ptr = current;
                 current = current->next;
             }
-            current = leaf;
+            current = last;
             throw std::runtime_error("Value not found.");
         }
         V get(const K& key)
@@ -149,12 +148,12 @@ private:
                 if(current->key == key)
                 {
                     value = current->value;
-                    current = leaf;
+                    current = last;
                     return value;
                 }
                 current = current->next;
             }
-            current = leaf;
+            current = last;
             throw std::runtime_error("Value not found.");
         }
         bool containsKey(const K& key)
@@ -164,12 +163,12 @@ private:
             {
                 if(current->key == key)
                 {
-                    current = leaf;
+                    current = last;
                     return true;
                 }
                 current = current->next;
             }
-            current = leaf;
+            current = last;
             return false;
         }
         bool containsValue(const V& value)
@@ -179,12 +178,12 @@ private:
             {
                 if(current->value == value)
                 {
-                    current = leaf;
+                    current = last;
                     return true;
                 }
                 current = current->next;
             }
-            current = leaf;
+            current = last;
             return false;
         }
         void clear()
@@ -204,7 +203,7 @@ private:
             delete root;
             root = nullptr;
             current = nullptr;
-            leaf = nullptr;
+            last = nullptr;
         }
         bool isEmpty() const
         {
@@ -247,7 +246,7 @@ private:
                 if(current->key == key)
                 {
                     ptr = &(*current);
-                    current = leaf;
+                    current = last;
                     return ptr;
                 }
                 current = current->next;
@@ -257,7 +256,7 @@ private:
         }
     private:
         Node<K, V>* root;
-        Node<K, V>* leaf;
+        Node<K, V>* last;
         Node<K, V>* current;
         size_t size;
     };
@@ -377,4 +376,3 @@ public:
         return fullness == 0;
     }
 };
-#endif 

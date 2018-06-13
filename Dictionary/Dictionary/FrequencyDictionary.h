@@ -33,16 +33,15 @@ private:
 
     Node* copy(Node*);
     void clear(Node*&);
-    void stole(FrequencyDictionary&);
 
     int search(std::string&, Node*);
     void add(std::string&, Node*&);
     int wordsCount(Node*);
-    bool remove(std::string, Node*);
+    bool remove(std::string, Node*, Node*);
 
-    Node* rightNodeOfLeftSubtree(Node*);
+    Node* rightNodeOfLeftSubtreeParent(Node*);
     void fromLeftToRightPrint(Node*, std::ostream&);
 
-    bool equals(const Node*, const Node*);
+    friend bool equals(const Node*, const Node*);
 };
 

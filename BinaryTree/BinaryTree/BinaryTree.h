@@ -12,27 +12,22 @@ public:
 
     BinaryTree& operator=(const BinaryTree & other);
     BinaryTree& operator=(BinaryTree && other);
+    friend std::ostream& operator <<(std::ostream &os, BinaryTree &tree);
 
     void add(std::vector<bool> way, int x);
     void add(const char* way, int x);
-
+    void cutLeaves();
     void clear();
     void copy(const BinaryTree &other);
-    friend std::ostream& operator <<(std::ostream &os, BinaryTree &tree);
+    void levelPrint();
 
     int evenCount();
-    bool containsOnlyPositive();
-    void cutLeaves();
     double getAverage();
     std::vector<bool> find(int x);
 
-    void levelPrint();
 
+    bool containsOnlyPositive();
     bool isBinarySearchTree();
-    bool isBST()
-    {
-        return isBST(root, INT_MIN, INT_MAX);
-    }
 
     size_t getLevel();
 private:
@@ -41,7 +36,7 @@ private:
         int value;
         Node* left;
         Node* right;
-        Node(int nValue, Node* nLeft = nullptr, Node* nRight = nullptr) : value(nValue), left(nLeft), right(nRight) {}
+        Node(int value, Node* left = nullptr, Node* right = nullptr) : value(value), left(left), right(right) {}
     };
     Node *root;
     size_t level;
@@ -50,7 +45,6 @@ private:
     bool add2(Node*& root, const char* way, int x, int position);
     void clear(Node*& current);
     Node* copy(Node* root);
-    void stole(BinaryTree& other);
     void fromLeftToRightPrint(Node* root, std::ostream &os);
 
     int getQuantityOfEvenElements(Node* root);
@@ -62,18 +56,5 @@ private:
     void printTree(Node* root, int steps);
 
     bool isBinarySearchTree(Node* root, int min, int max, int from, bool minFound);
-
-    bool isBST(Node * root, int min, int max)
-    {
-        if(!root)
-        {
-            return true;
-        }
-        if(root->value <= min || root->value >= max)
-        {
-            return false;
-        }
-        return isBST(root->left, min, root->value) && isBST(root->right, root->value, max);
-    }
 };
 

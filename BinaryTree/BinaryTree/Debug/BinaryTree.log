@@ -1,3 +1,10 @@
-﻿  Main.cpp
+﻿  BinaryTree.cpp
+d:\cpp projects\binarytree\binarytree\binarytree.cpp(340): warning C4018: <: несоответствие типов со знаком и без знака
+  Создание кода...
+d:\cpp projects\binarytree\binarytree\binarytree.cpp(46): warning C4715: BinaryTree::operator=: значение возвращается не при всех путях выполнения
+d:\cpp projects\binarytree\binarytree\binarytree.cpp(332): warning C4715: BinaryTree::find: значение возвращается не при всех путях выполнения
+  Компиляция...
+  Main.cpp
+  Создание кода...
   BinaryTree.vcxproj -> D:\CPP Projects\BinaryTree\Debug\BinaryTree.exe
   BinaryTree.vcxproj -> D:\CPP Projects\BinaryTree\Debug\BinaryTree.pdb (Full PDB)
